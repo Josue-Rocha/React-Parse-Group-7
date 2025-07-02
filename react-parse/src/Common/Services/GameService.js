@@ -4,7 +4,7 @@ import Parse from "parse";
 // CREATE operation - new lesson with Name
 export const createGames = (Name) => {
   console.log("Creating: ", Name);
-  const Lesson = Parse.Object.extend("Songs");
+  const Lesson = Parse.Object.extend("Games");
   const lesson = new Lesson();
   // using setter to UPDATE the object
   lesson.set("name", Name);
@@ -16,7 +16,7 @@ export const createGames = (Name) => {
 
 // READ operation - get lesson by ID
 export const getById = (id) => {
-  const Lesson = Parse.Object.extend("Lesson");
+  const Lesson = Parse.Object.extend("Games");
   const query = new Parse.Query(Lesson);
   return query.get(id).then((result) => {
     // return Lesson object with objectId: id

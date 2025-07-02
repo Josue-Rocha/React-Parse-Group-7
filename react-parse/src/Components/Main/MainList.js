@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {getAllGames} from "../../Common/Services/GameService.js";
-
+import CartService from "../../Common/Services/CartService";
 //creates the indiviual parts of that list and maps to work on all games
 const MainList = () => {
     const [games, setGames] = useState([]);
@@ -11,6 +11,16 @@ const MainList = () => {
       setGames(games);
     });
   }, []);
+
+  const handleAddToCart = async (game) => {
+  try {
+    await CartService.addToCart(game);
+    alert(`${game.get("name")} added to cart!`);
+  } catch (error) {
+    console.error("Failed to add to cart:", error);
+    alert("There was an error adding to cart.");
+  }
+};
     return(
     <div id="main2">
       <hr />
@@ -38,6 +48,7 @@ const MainList = () => {
           Creator: <b>{game.get("creator")}</b><br />
           Rating (According to IGN): <b>{game.get("rating")}</b><br />
           Price: <b>{game.get("price")}</b><br />
+          <button onClick={() => handleAddToCart(game)}>Add to Cart</button>
         </p>
       </div>
     </div>
