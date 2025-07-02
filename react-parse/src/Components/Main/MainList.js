@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {getAllGames} from "../../Common/Services/GameService.js";
 import CartService from "../../Common/Services/CartService";
+import { Link } from "react-router-dom";
+
 //creates the indiviual parts of that list and maps to work on all games
 const MainList = () => {
     const [games, setGames] = useState([]);
@@ -55,6 +57,9 @@ const MainList = () => {
   </li>
 ))}
       </ul>
+      <nav>
+        <Link to="/cartpage">Cart</Link>
+      </nav>
     </div>
     );
     };

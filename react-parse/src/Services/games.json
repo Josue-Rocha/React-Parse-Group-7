@@ -1,0 +1,46 @@
+[
+  {
+    "id": 0,
+    "name": "Persona 5 Royal",
+    "cover": "Images/Persona.jpg/",
+    "creator": "Naoya Maeda",
+    "price": "$59.99",
+    "rating": "9.7/10"
+  },
+
+  {
+    "id": 1,
+    "name": "Red Dead Redemption II",
+    "cover": "Images/rdr2.jpg/",
+    "creator": "Imran Sarwar",
+    "price": "$29.99",
+    "rating": "9.7/10"
+  },
+
+  {
+    "id": 2,
+    "name": "Elden Ring",
+    "cover": "Images/Elden_Ring.jpeg/",
+    "creator": "Hidetaka Miyazaki",
+    "price": "$79.99",
+    "rating": "10/10"
+  },
+
+  {
+    "id": 3,
+    "name": "The Last of Us",
+    "cover": "Images/tlou.jpg/",
+    "creator": "Neil Druckmann",
+    "price": "$39.99",
+    "rating": "10/10"
+  },
+
+  {
+    "id": 4,
+    "name": "Monster Hunter Wilds",
+    "cover": "Images/Monster_Hunter.png/",
+    "creator": "Yuya Tokuda",
+    "price": "$69.99",
+    "rating": "8/10"
+  }
+]
