@@ -2,6 +2,19 @@ import React, { useEffect, useState } from "react";
 import {getAllGames} from "../../Common/Services/GameService.js";
 import CartService from "../../Common/Services/CartService";
 import { Link } from "react-router-dom";
+import persona from '../../Images/Persona.jpg';
+import eldenRing from '../../Images/Elden_Ring.jpeg';
+import monsterHunter from '../../Images/Monster_Hunter.png';
+import rdr2 from '../../Images/rdr2.jpg';
+import tlou from '../../Images/tlou.jpg';
+
+const imageMap = {
+  "Persona 5 Royal": persona,
+  "Elden Ring": eldenRing,
+  "Monster Hunter Wilds": monsterHunter,
+  "Red Dead Redemption II": rdr2,
+  "The Last of Us": tlou
+};
 
 //creates the indiviual parts of that list and maps to work on all games
 const MainList = () => {
@@ -32,7 +45,7 @@ const MainList = () => {
     <div className="container">
       <div className="image">
         <img
-          src={game.get("cover")}
+          src={imageMap[game.get("name")] || 'https://via.placeholder.com/500x400?text=No+Image'}
           height="400"
           width="500"
           alt={game.get("name")}
