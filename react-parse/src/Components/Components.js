@@ -6,6 +6,8 @@ import CartPage from "./Cart/CartPage";
 import ProfilePage from "./Auth/ProfilePage";
 import LoginPage from "./Auth/LoginPage";
 import ProtectedRoute from "./Auth/ProtectedRoute";
+import AuthRegister from "./Auth/RegisterPage";
+import ForgotPassword from "./Auth/ForgotPasswordPage";
 
 
   export default function Components() {
@@ -16,6 +18,8 @@ import ProtectedRoute from "./Auth/ProtectedRoute";
         {/* Public routes */}
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<AuthRegister />} />
+        <Route path="/forgot" element={<ForgotPassword />} />
 
         {/* Protected routes */}
         <Route
