@@ -3,12 +3,12 @@ ul.no-bullets {
 }
 
 .container {
+   width: 100%;
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
-
 
 .container2 {
   display: grid;
@@ -85,26 +85,34 @@ button {
   border: none;
   cursor: pointer;
 }
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  padding: 1rem 2rem;
+}
 
-ul {
+.site-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.5rem;
   list-style: none;
-  padding: unset;
-  margin: unset;
+  margin: 0;
+  padding: 0;
 }
 
-li {
-  padding: 14px;
-  transition: all linear 0.3s;
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-li:hover {
-  background: gray;
-  cursor: pointer;
-  color: #fff;
-}
-
-.dropdown-menu {
-  background: #fff;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
-  transition: all linear 0.3s;
+.nav-list a:hover {
+  color: #a53860; 
 }

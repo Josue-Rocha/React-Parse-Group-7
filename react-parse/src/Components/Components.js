@@ -9,10 +9,12 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
   export default function Components() {
     return (
       <Router>
+        <SiteFooter /> 
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/cartpage" element={<CartPage />} />
         </Routes>
+  
       </Router>
     );
   }

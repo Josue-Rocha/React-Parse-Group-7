@@ -68,7 +68,6 @@ img {
   text-align: center;
 }
 header {
-  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
@@ -106,4 +105,13 @@ li:hover {
   background: #fff;
   box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
   transition: all linear 0.3s;
+}
+
+.container3 {
+   max-width: 1020px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
 }

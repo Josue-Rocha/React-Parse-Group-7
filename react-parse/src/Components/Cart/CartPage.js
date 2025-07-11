@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"; // useHistory
 import Cart from "./Cart.js";
+import "./Cart.css";
 
 export default function CartPage() {
   const history = useNavigate();
@@ -9,11 +10,8 @@ export default function CartPage() {
   };
 
   return (
-    <section>
-      <h1>Welcome to the CartPage component</h1>
-      <p>This is the Cart Page</p>
-      <button onClick={buttonHandler}>Home</button>
+    <div className="cart-container">
       <Cart />
-    </section>
+    </div>
   );
 }
