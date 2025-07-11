@@ -7,6 +7,7 @@ import eldenRing from '../../Images/Elden_Ring.jpeg';
 import monsterHunter from '../../Images/Monster_Hunter.png';
 import rdr2 from '../../Images/rdr2.jpg';
 import tlou from '../../Images/tlou.jpg';
+import Parse from "parse";
 
 const imageMap = {
   "Persona 5 Royal": persona,
@@ -18,6 +19,7 @@ const imageMap = {
 
 //creates the indiviual parts of that list and maps to work on all games
 const MainList = () => {
+    const user = Parse.User.current();
     const [games, setGames] = useState([]);
 
     useEffect(() => {
@@ -28,6 +30,7 @@ const MainList = () => {
   }, []);
 
   const handleAddToCart = async (game) => {
+    if(user){
   try {
     await CartService.addToCart(game);
     alert(`${game.get("name")} added to cart!`);
@@ -35,6 +38,9 @@ const MainList = () => {
     console.error("Failed to add to cart:", error);
     alert("There was an error adding to cart.");
   }
+}else{
+  alert(`Have to log in in order to add to Cart`);
+}
 };
     return(
     <div id="main2">

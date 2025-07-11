@@ -11,10 +11,8 @@ const ProtectedRoute = ({ element: Component, path, ...rest }) => {
   };
 
   if (currentUser) {
-    // ✅ Authenticated, render the protected component
     return <Component {...rest} />;
   } else {
-    // ❌ Not authenticated, show fallback or redirect
     return (
       <div>
         <p>Unauthorized!</p>
