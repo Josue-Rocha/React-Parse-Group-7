@@ -7,3 +7,11 @@ react-parse MAJOR Create a cart service and component which is at the bottom of 
 
 Changed
 Fixed
+
+
+[feature 5] - 2025-07-10
+Added
+react-parse MAJOR added protected routes and user authentication
+
+Changed
+Fixed
