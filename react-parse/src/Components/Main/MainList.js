@@ -71,7 +71,6 @@ const MainList = () => {
 ))}
       </ul>
       <nav>
-        <Link to="/cartpage">Cart</Link>
       </nav>
     </div>
     );
