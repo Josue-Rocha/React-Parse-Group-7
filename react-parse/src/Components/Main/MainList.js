@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllGames } from "../../Common/Services/GameService.js";
 import CartService from "../../Common/Services/CartService";
 import persona from '../../Images/Persona.jpg';
+import { Link } from "react-router-dom";
 import eldenRing from '../../Images/Elden_Ring.jpeg';
 import monsterHunter from '../../Images/Monster_Hunter.png';
 import rdr2 from '../../Images/rdr2.jpg';
@@ -50,13 +51,16 @@ const MainList = () => {
     setFilterText(e.target.value);
   };
 
+  
+
   // Filter then sort the games
   const filteredGames = games.filter((game) => {
     const name = game.get("name")?.toLowerCase() || "";
     const creator = game.get("creator")?.toLowerCase() || "";
     const rating = game.get("rating")?.toString().toLowerCase() || "";
+    const year = game.get("Release_Date")?.toString().toLowerCase() || "";
     const search = filterText.toLowerCase();
-    return name.includes(search) || creator.includes(search) || rating.includes(search);
+    return name.includes(search) || creator.includes(search) || rating.includes(search) || year.includes(search);
   });
 
   const sortedGames = [...filteredGames].sort((a, b) => {
@@ -69,6 +73,10 @@ const MainList = () => {
         return a.get("price") - b.get("price");
       case "price-desc":
         return b.get("price") - a.get("price");
+      case "date-asc":
+      return a.get("Release_Date")- b.get("Release_Date");
+      case "date-desc":
+        return b.get("Release_Date") - a.get("Release_Date");
       default:
         return 0;
     }
@@ -82,7 +90,7 @@ const MainList = () => {
       <div style={{ margin: "10px 0" }}>
         <input
           type="text"
-          placeholder="Search by name, creator, or rating"
+          placeholder="Search by name, creator, year, or rating"
           value={filterText}
           onChange={handleFilterChange}
           style={{ marginRight: "10px", padding: "5px", width: "300px" }}
@@ -94,6 +102,8 @@ const MainList = () => {
           <option value="name-desc">Alphabetical (Z-A)</option>
           <option value="price-asc">Price (Low to High)</option>
           <option value="price-desc">Price (High to Low)</option>
+          <option value="date-asc">Release Date (Oldest First)</option>
+          <option value="date-desc">Release Date (Newest First)</option>
         </select>
       </div>
 
@@ -102,18 +112,20 @@ const MainList = () => {
           <li key={index}>
             <div className="container">
               <div className="image">
-                <img
-                  src={imageMap[game.get("name")] || 'https://via.placeholder.com/500x400?text=No+Image'}
-                  height="400"
-                  width="500"
-                  alt={game.get("name")}
-                  style={{
-                    border: "5px solid #000000",
-                    padding: "3px",
-                    margin: "5px",
-                    float: "left",
-                  }}
-                />
+                <Link to={`/games/${game.id}`}>
+                  <img
+                    src={imageMap[game.get("name")] || 'https://via.placeholder.com/500x400?text=No+Image'}
+                    height="400"
+                    width="500"
+                    alt={game.get("name")}
+                    style={{
+                      border: "5px solid #000000",
+                      padding: "3px",
+                      margin: "5px",
+                      float: "left",
+                    }}
+                  />
+                </Link>
               </div>
               <div className="text">
                 <h3>{game.get("name")}</h3>
@@ -121,6 +133,7 @@ const MainList = () => {
                   Creator: <b>{game.get("creator")}</b><br />
                   Rating (IGN): <b>{game.get("rating")}</b><br />
                   Price: <b>${game.get("price")}</b><br />
+                  Release Year: <b>{game.get("Release_Date")}</b><br />
                   <button onClick={() => handleAddToCart(game)}>Add to Cart</button>
                 </p>
               </div>

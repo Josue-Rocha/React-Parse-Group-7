@@ -8,6 +8,7 @@ import LoginPage from "./Auth/LoginPage";
 import ProtectedRoute from "./Auth/ProtectedRoute";
 import AuthRegister from "./Auth/RegisterPage";
 import ForgotPassword from "./Auth/ForgotPasswordPage";
+import GameDetails from "./Game/GameDetails";
 
 
   export default function Components() {
@@ -20,6 +21,7 @@ import ForgotPassword from "./Auth/ForgotPasswordPage";
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<AuthRegister />} />
         <Route path="/forgot" element={<ForgotPassword />} />
+       <Route path="/games/:id" element={<GameDetails />} />
 
         {/* Protected routes */}
         <Route
